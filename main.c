@@ -15,6 +15,7 @@
 #include"udffind.c"
 #include"status.c"
 #include"changecat.c"
+#include"adjustbook.c" 
 int main()
 {
 	int n;
@@ -58,7 +59,7 @@ int main()
 			case 9:show();break;
 			case 10:status();break;
 			case 11:udffind();break;
-			case 12://µÈ×Åzmr 
+			case 12:adjustbook();break;
 			case 13:sort2();break;
 			case 14:changecat();break;
 			case 0:return 0;
