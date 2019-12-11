@@ -3,10 +3,11 @@
 #include"cal.c"
 #include<stdlib.h>
 #include"def.h"
+#include<time.h>
 void adjustbook()
 {
 	FILE *fp;
-	int i,j,d,adb,npage;
+	int i,j,d,p1,adb,npage;
 	d=readnum();
 	struct pdf *tem;
 	tem=malloc(d*sizeof(struct pdf));
@@ -38,6 +39,7 @@ void adjustbook()
 	printf("%dth %s   Page:%d   Finish:%d   TagNumbers:%d\n",i+1,tem[i].name,tem[i].pageall,tem[i].read,tem[i].lin);
 	printf("Which book's information do you want to adjust?Input the num of book\n");
 	scanf("%d",&adb);
+	p1=tem[adb-1].read;
 	printf("Please input the page now you have read\n");
 	scanf("%d",&npage);
 	tem[adb-1].read=npage;
@@ -63,4 +65,17 @@ void adjustbook()
 	fclose(hp);
 	remove("info.csv");
 	rename("temp.csv","info.csv");
+	time_t rawtime;
+   struct tm *info;
+   char buffer[80];
+   time( &rawtime );
+   info=localtime( &rawtime );
+   if((fp=fopen("time.csv","a+"))==NULL)
+   {
+   	printf("cannot open\n");
+   }
+   fprintf(fp,"%s",asctime(info));
+   fprintf(fp,"%s %dpages->%dpages,%dmore.\n",tem[adb-1].name,p1,npage,npage-p1);
+   fclose(fp);
+   plus3();
 }

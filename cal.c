@@ -143,5 +143,37 @@ void minus2()
 	fprintf(fp,"%d",d);
 	fclose(fp);
 }
+void plus3()
+{
+	int d;
+	FILE*fp;
+	if ((fp=fopen("calm.txt","r"))==NULL)
+		{
+			printf("cannot open this file .\n");
+			exit(0);
+		}
+	fscanf(fp,"%d",&d);
+	d++;
+	fclose(fp);
+	if ((fp=fopen("calm.txt","w"))==NULL)
+		{
+			printf("cannot open this file .\n");
+			exit(0);
+		}
+	fprintf(fp,"%d",d);
+	fclose(fp);
+}
+
+void zero(){
+	FILE*fp;
+	int d=0;
+	if ((fp=fopen("calT.txt","w"))==NULL)
+		{
+			printf("cannot open this file .\n");
+			exit(0);
+		}
+	fprintf(fp,"%d",d);
+	fclose(fp);
+}
 #endif
 

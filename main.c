@@ -17,6 +17,8 @@
 #include"changecat.c"
 #include"adjustbook.c" 
 #include"filecopy.c"
+#include"history.c"
+#include"clear.c"
 int main()
 {
 	int n;
@@ -45,10 +47,13 @@ int main()
 	printf("14-更改书籍管理类别\n");
 	printf("15-复制文件"); 
 	printf("                 ");
+	printf("16-显示阅读时间及进度\n");
+	printf("17-清除阅读时间记录"); 
+	printf("     ");
 	printf("0-exit\n");
 	printf("please input the number.\n");
 	scanf("%d",&n);
-	if(n>=0&&n<=15)
+	if(n>=0&&n<=17)
 	{
 		switch(n){
 			case 1:addbook();break;
@@ -66,6 +71,8 @@ int main()
 			case 13:sort2();break;
 			case 14:changecat();break;
 			case 15:udfcopy();break;
+			case 16:history();break;
+			case 17:clear();break;
 			case 0:return 0;
 		}
 	}
