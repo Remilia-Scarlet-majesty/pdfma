@@ -50,4 +50,5 @@ void  udfcopy()
 		system(cmd);
 		strcpy(cmd,"copy ");
 	}
+	free(no); 
 }
